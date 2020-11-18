@@ -1,5 +1,4 @@
-# Exercice 1 : méthode des rectangles
-
+# Exercice 1 :
 import numpy as np
 import math
 
@@ -15,3 +14,23 @@ def integrale(f, a, b, n):
         k+=n
  
     return integrale
+
+# Exercice 2 :
+def integrale_precise(f, a, b, n0, precision):
+    val = integrale(f, a, b, n0)
+    val0 = None
+    while val0 is None or abs(val - val0) / val0 > precision:
+        val0 = val
+        n0 += 1
+        val = integrale(f, a, b, n0)
+    return val, n0
+
+integrale_precise(lambda x: x, 0.1, 1, 10, 1e-4)
+
+#Exercice 3 :
+f = lambda x : 3*x**3 + 2*x - 1
+print(integrale(f,0,10,0.001))
+
+#Ex4
+g = lambda x : math.cos(1/x)
+print(integrale(g,0.1,10,0.001))
