@@ -15,7 +15,7 @@ def integrale(f, a, b, n):
  
     return integrale
 
-# Exercice 2 :
+# 2 :
 def integrale_precise(f, a, b, n0, precision):
     val = integrale(f, a, b, n0)
     val0 = None
@@ -27,10 +27,21 @@ def integrale_precise(f, a, b, n0, precision):
 
 integrale_precise(lambda x: x, 0.1, 1, 10, 1e-4)
 
-#Exercice 3 :
+#3 :
 f = lambda x : 3*x**3 + 2*x - 1
 print(integrale(f,0,10,0.001))
 
-#Ex4
+#4
 g = lambda x : math.cos(1/x)
 print(integrale(g,0.1,10,0.001))
+
+#Exercice 2:
+def trapezes(f, a, b, N):
+     pas = (b-a) / N
+     x = a
+     somme = (f(a) + f(b)) / 2
+    
+     for _ in range(N-1):
+        x += pas
+        somme += f(x)
+     return somme / N
