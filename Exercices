@@ -1,0 +1,17 @@
+# Exercice 1 : méthode des rectangles
+
+import numpy as np
+import math
+
+def integrale(f, a, b, n):
+    integrale = 0
+    k=a;
+    
+    while(k < b):
+        largeur = (b-a)/n
+        hauteur = f(a + k*(b-a)/n)
+        aire = largeur * hauteur
+        integrale += aire
+        k+=n
+ 
+    return integrale
